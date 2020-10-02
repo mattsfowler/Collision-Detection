@@ -11,6 +11,8 @@ private:
 	int sphereResolution;
 	int numSpheres = 3;
 	Sphere spheres[10];
+	float g;
+	float timeBetweenUpdates;
 
 public:
 	SphereApp();

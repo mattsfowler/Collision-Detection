@@ -45,6 +45,9 @@
     <ClCompile Include="SphereApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="vector2d.cpp">
+      <Filter>Source Files\Physics Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sphere.h">

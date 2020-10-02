@@ -1,6 +1,4 @@
-﻿  GLScript.cpp
-D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\GLScript.cpp(25,16): warning C4244: 'argument': conversion from 'GLfloat' to 'unsigned int', possible loss of data
-D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\GLScript.cpp(40,16): warning C4244: 'argument': conversion from 'GLfloat' to 'unsigned int', possible loss of data
+﻿  SphereApp.cpp
   main.cpp
   Generating Code...
   CollisionDetection.vcxproj -> D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\Debug\CollisionDetection.exe
