@@ -17,9 +17,9 @@ bool PhysicsObject::isMovable()
 	return inverseMass > 0.0f;
 }
 
-void PhysicsObject::addForce(vector2d force)
+void PhysicsObject::addForce(Vector2 force)
 {
-	totalForce = totalForce + force;
+	totalForce += force;
 }
 
 void PhysicsObject::clearForce()
@@ -34,12 +34,12 @@ void PhysicsObject::update(float duration)
 	if (isMovable() == false) return;
 
 	// F = ma  -->  a = f/m  -->  a = f*(1/m)
-	vector2d acceleration = totalForce * inverseMass;
+	Vector2 acceleration = totalForce * inverseMass;
 	
 	// acceleration = change in velocity
 	velocity += acceleration * duration;
 
-	// drag
+	// dampening, primitive drag simulation
 	velocity *= pow(dampening, duration);
 
 	// velocity = change in position

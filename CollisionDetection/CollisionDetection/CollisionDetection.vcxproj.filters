@@ -45,7 +45,7 @@
     <ClCompile Include="SphereApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="vector2d.cpp">
+    <ClCompile Include="SphereContact.cpp">
       <Filter>Source Files\Physics Core</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,14 +56,17 @@
     <ClInclude Include="PhysicsObject.h">
       <Filter>Header Files\Physics Core</Filter>
     </ClInclude>
-    <ClInclude Include="vector2d.h">
-      <Filter>Header Files\Physics Core</Filter>
-    </ClInclude>
     <ClInclude Include="Application.h">
       <Filter>Header Files\GL</Filter>
     </ClInclude>
     <ClInclude Include="SphereApp.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereContact.h">
+      <Filter>Header Files\Physics Core</Filter>
+    </ClInclude>
+    <ClInclude Include="coreMath.h">
+      <Filter>Header Files\Physics Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 #pragma once
-#include "vector2d.h"
+#include "coreMath.h"
 #include <math.h>
 #include <limits>
 #include <assert.h>
@@ -9,19 +9,19 @@
 class PhysicsObject
 {
 protected:
-	vector2d totalForce;
+	Vector2 totalForce;
 
 public:
 	float inverseMass;
 	float dampening;
-	vector2d position;
-	vector2d velocity;
+	Vector2 position;
+	Vector2 velocity;
 	
 	float getMass();
 	void setMass(float mass);
 	bool isMovable();
-	void addForce(vector2d force);
-	void clearForce();
-	void update(float duration);
+	virtual void addForce(Vector2 force);
+	virtual void clearForce();
+	virtual void update(float duration);
 };
 
