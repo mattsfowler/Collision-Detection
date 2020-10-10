@@ -3,25 +3,35 @@
 
 SphereApp::SphereApp()
 {
+	numSpheres = NUM_SPHERES;
 	sphereResolution = 30;
-	g = 9.81f;
-	timeBetweenUpdates = 0.5f;
+	g = Vector2(0.0f, -9.81);
 
-	// manually position spheres
-	spheres[0] = Sphere(10.0f);
-	spheres[0].setMass(2.0f);
-	spheres[0].position = Vector2(30.0f, 30.0f);
-	spheres[0].dampening = 1.0f;
-
-	spheres[1] = Sphere(7.0f);
-	spheres[1].setMass(1.0f);
-	spheres[1].position  = Vector2(0.0f, 30.0f);
-	spheres[1].dampening = 1.0f;
-	
-	spheres[2] = Sphere(20.0f);
-	spheres[2].setMass(4.0f);
-	spheres[2].position = Vector2(-30.0f, 30.0f);
-	spheres[2].dampening = 1.0f;
+	//automatically generate a number of spheres
+	width = 100;
+	height = 100;
+	int minRad = 2;
+	int maxRad = 5;
+	int minVel = 0;
+	int maxVel = 10;
+	for (int s = 0; s < numSpheres; s++)
+	{
+		int radius = rand() % (maxRad - minRad) + minRad;
+		int posX = rand() % (width * 2) - width;
+		int posY = rand() % (height * 2) - height;
+		int velX = rand() % (maxVel - minVel) + minVel;
+		int velY = rand() % (maxVel - minVel) + minVel;
+		int r = rand() % 255;
+		int g = rand() % 255;
+		int b = rand() % 255;
+		float mass = M_PI * powf(radius, 2.0f);
+		spheres[s] = Sphere(radius);
+		spheres[s].position = Vector2(posX, posY);
+		spheres[s].velocity = Vector2(velX, velY);
+		spheres[s].setColour(r, g, b);
+		spheres[s].setMass(mass);
+		spheres[s].dampening = 0.8f;
+	}
 }
 
 
@@ -31,10 +41,11 @@ void SphereApp::display(void)
 
 	for (int s = 0; s < numSpheres; s++)
 	{
-		glLoadIdentity();
+		glPushMatrix();
 		glTranslatef(spheres[s].position.x, spheres[s].position.y, 0);
-		glColor3ub(255, 0, 0);
+		glColor3ub(spheres[s].getColour('r'), spheres[s].getColour('g'), spheres[s].getColour('b'));
 		glutSolidSphere(spheres[s].getRadius(), sphereResolution, sphereResolution);
+		glPopMatrix();
 	}
 
 	glutSwapBuffers();
@@ -42,16 +53,38 @@ void SphereApp::display(void)
 
 void SphereApp::update()
 {
-	system("CLS");
-
 	for (int s = 0; s < numSpheres; s++)
 	{
-		spheres[s].addForce(Vector2(0, -g * spheres[s].getMass()));
-		spheres[s].update(timeBetweenUpdates);
+		spheres[s].addForce(g * spheres[s].getMass());
+		spheres[s].update(Application::timeInterval / 1000.0f); //TODO: why the div by 1000?
+		borderCollisionResolve(&spheres[s]);
+		outOfBoundsResolve(&spheres[s]);
 	}
 	
-	std::cout << std::endl;
 	Application::update();
+}
+
+void SphereApp::borderCollisionResolve(Sphere* s)
+{
+	float radius = s->getRadius();
+	if (s->position.x > (width - radius) || s->position.x < (-width + radius))
+		s->velocity.x = -s->velocity.x;
+	if (s->position.y > (height - radius) || s->position.y < (-height + radius))
+		s->velocity.y = -s->velocity.y;
+}
+
+void SphereApp::outOfBoundsResolve(Sphere* s)
+{
+	float radius = s->getRadius();
+	if (s->position.x > (width - radius))
+		s->position.x = width - radius;
+	else if (s->position.x < (-width + radius))
+		s->position.x = -width + radius;
+
+	if (s->position.y > (height - radius))
+		s->position.y = height - radius;
+	else if (s->position.y < (-height + radius))
+		s->position.y = -height + radius;
 }
 
 /*

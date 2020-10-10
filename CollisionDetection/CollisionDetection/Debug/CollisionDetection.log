@@ -1,2 +1,11 @@
 ﻿  SphereApp.cpp
+D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\coreMath.h(141,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\SphereApp.cpp(8,25): warning C4305: 'argument': truncation from 'double' to 'const float'
+D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\SphereApp.cpp(27,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\SphereApp.cpp(27,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\SphereApp.cpp(28,23): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\SphereApp.cpp(29,39): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\SphereApp.cpp(29,33): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\SphereApp.cpp(30,39): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\SphereApp.cpp(30,33): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
   CollisionDetection.vcxproj -> D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\Debug\CollisionDetection.exe

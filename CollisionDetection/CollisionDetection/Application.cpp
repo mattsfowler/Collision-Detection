@@ -2,6 +2,11 @@
 #include "Application.h"
 
 
+void Application::setTimeInterval(float interval)
+{
+    this->timeInterval = interval;
+}
+
 void Application::initGraphics()
 {
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);

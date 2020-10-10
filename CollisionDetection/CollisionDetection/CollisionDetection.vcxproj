@@ -142,17 +142,13 @@
     <ClCompile Include="SphereApp.cpp" />
     <ClCompile Include="GLScript.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="PhysicsObject.cpp" />
     <ClCompile Include="Sphere.cpp" />
-    <ClCompile Include="SphereContact.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="coreMath.h" />
-    <ClInclude Include="PhysicsObject.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="SphereApp.h" />
-    <ClInclude Include="SphereContact.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

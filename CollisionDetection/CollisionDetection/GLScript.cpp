@@ -4,7 +4,7 @@
 
 // Global variables ew yuck: any alternatives?
 Application* app;
-GLfloat timeInterval = 100.0f;
+GLfloat timeInterval = 1000.0f / 60.0f;   // 60fps
 
 
 void display(void)
@@ -19,10 +19,10 @@ void createWindow(const char* title)
 	glutCreateWindow(title);
 }
 
-void timerFunc(int value)
+void update(int value)
 {
 	app->update();
-	glutTimerFunc(timeInterval, timerFunc, 1);
+	glutTimerFunc(timeInterval, update, 1);
 }
 
 void resize(int width, int height)
@@ -37,8 +37,9 @@ void runGLApp(Application* application, int argc, char* argv[])
 	createWindow("Sphere");
 	glutReshapeFunc(resize);
 	glutDisplayFunc(display);
-	glutTimerFunc(timeInterval, timerFunc, 1);
 	app->initGraphics();
+	app->setTimeInterval(timeInterval);
+	glutTimerFunc(timeInterval, update, 1);
 	glutMainLoop();
 }
 

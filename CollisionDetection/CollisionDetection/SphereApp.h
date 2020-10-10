@@ -5,17 +5,23 @@
 #include "Sphere.h"
 #include <iostream>
 
+#define NUM_SPHERES 100
+#define M_PI 3.14159265358979323846  /* pi */
+
+
 class SphereApp : public Application
 {
 private:
 	int sphereResolution;
-	int numSpheres = 3;
-	Sphere spheres[10];
-	float g;
-	float timeBetweenUpdates;
+	int numSpheres;
+	Sphere spheres[NUM_SPHERES];
+	Vector2 g;
 
 public:
 	SphereApp();
-	virtual void display();
-	virtual void update();
+	void display();
+	void update();
+
+	void borderCollisionResolve(Sphere* s);
+	void outOfBoundsResolve(Sphere* s);
 };
