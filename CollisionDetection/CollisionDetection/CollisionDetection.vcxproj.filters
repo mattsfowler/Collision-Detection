@@ -16,17 +16,11 @@
     <Filter Include="Header Files\GL">
       <UniqueIdentifier>{153322e1-565e-479d-a218-1776e99bd228}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Physics Core">
-      <UniqueIdentifier>{c51434fc-6656-48d8-888c-593ea053068e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\GL">
       <UniqueIdentifier>{d18b62fb-350f-414d-88e4-3dcf527cd1c7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Sphere.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -36,22 +30,34 @@
     <ClCompile Include="GLScript.cpp">
       <Filter>Source Files\GL</Filter>
     </ClCompile>
-    <ClCompile Include="SphereApp.cpp">
+    <ClCompile Include="SphereGeometry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyDemoApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereCollisionResolver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Sphere.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Application.h">
       <Filter>Header Files\GL</Filter>
     </ClInclude>
-    <ClInclude Include="SphereApp.h">
+    <ClInclude Include="coreMath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="coreMath.h">
-      <Filter>Header Files\Physics Core</Filter>
+    <ClInclude Include="SphereGeometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyDemoApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereCollisionResolver.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

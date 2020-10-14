@@ -139,16 +139,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
-    <ClCompile Include="SphereApp.cpp" />
+    <ClCompile Include="MyDemoApp.cpp" />
     <ClCompile Include="GLScript.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Sphere.cpp" />
+    <ClCompile Include="SphereCollisionResolver.cpp" />
+    <ClCompile Include="SphereGeometry.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="coreMath.h" />
-    <ClInclude Include="Sphere.h" />
-    <ClInclude Include="SphereApp.h" />
+    <ClInclude Include="MyDemoApp.h" />
+    <ClInclude Include="Platform.h" />
+    <ClInclude Include="SphereCollisionResolver.h" />
+    <ClInclude Include="SphereGeometry.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
