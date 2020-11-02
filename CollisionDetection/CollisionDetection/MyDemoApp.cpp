@@ -3,8 +3,8 @@
 
 MyDemoApp::MyDemoApp()
 {
-	numSpheres = NUM_SPHERES;
-	sphereResolution = 30;
+	numCircles = NUM_CIRCLES;
+	circleResolution = 30;
 
 	width = 80;
 	height = 80;
@@ -15,29 +15,29 @@ MyDemoApp::MyDemoApp()
 	int minVel = -4;
 	int maxVel = 4;
 	
-	for (int s = 0; s < numSpheres; s++)
+	for (int s = 0; s < numCircles; s++)
 	{
-		Circle sphere = generateRandomSphere(minRad, maxRad, minVel, maxVel);
-		spheres[s] = CirclePhysics(sphere);
+		Circle circle = generateRandomCircle(minRad, maxRad, minVel, maxVel);
+		circles[s] = CirclePhysics(circle);
 	}
 }
 
-Circle MyDemoApp::generateRandomSphere(int minRad, int maxRad, int minVel, int maxVel)
+Circle MyDemoApp::generateRandomCircle(int minRad, int maxRad, int minVel, int maxVel)
 {
-	Circle randomSphere = Circle();
+	Circle randomCircle = Circle();
 
-	randomSphere.radius = rand() % (maxRad - minRad) + minRad;
-	randomSphere.position.x = rand() % (width * 2) - width;
-	randomSphere.position.y = rand() % (height * 2) - height;
-	randomSphere.velocity.x = rand() % (maxVel - minVel) + minVel;
-	randomSphere.velocity.y = rand() % (maxVel - minVel) + minVel;
-	randomSphere.colour[0] = rand() % 255;
-	randomSphere.colour[1] = rand() % 255;
-	randomSphere.colour[2] = rand() % 255;
-	randomSphere.mass = M_PI * powf(randomSphere.radius, 2.0f);
-	randomSphere.dampening = 0.8f;
+	randomCircle.radius = rand() % (maxRad - minRad) + minRad;
+	randomCircle.position.x = rand() % (width * 2) - width;
+	randomCircle.position.y = rand() % (height * 2) - height;
+	randomCircle.velocity.x = rand() % (maxVel - minVel) + minVel;
+	randomCircle.velocity.y = rand() % (maxVel - minVel) + minVel;
+	randomCircle.colour[0] = rand() % 255;
+	randomCircle.colour[1] = rand() % 255;
+	randomCircle.colour[2] = rand() % 255;
+	randomCircle.mass = M_PI * powf(randomCircle.radius, 2.0f);
+	randomCircle.dampening = 0.8f;
 
-	return randomSphere;
+	return randomCircle;
 }
 
 
@@ -45,12 +45,12 @@ void MyDemoApp::display(void)
 {
 	Application::display();
 
-	for (int s = 0; s < numSpheres; s++)
+	for (int s = 0; s < numCircles; s++)
 	{
 		glPushMatrix();
-		glTranslatef(spheres[s].position().x, spheres[s].position().y, 0);
-		glColor3ub(spheres[s].colour('r'), spheres[s].colour('g'), spheres[s].colour('b'));
-		glutSolidSphere(spheres[s].radius(), sphereResolution, sphereResolution);
+		glTranslatef(circles[s].position().x, circles[s].position().y, 0);
+		glColor3ub(circles[s].colour('r'), circles[s].colour('g'), circles[s].colour('b'));
+		glutSolidSphere(circles[s].radius(), circleResolution, circleResolution);
 		glPopMatrix();
 	}
 
@@ -63,18 +63,18 @@ void MyDemoApp::update()
 	float restitution = 0.9f;
 	float duration = Application::timeInterval / 1000.0f;
 
-	for (int s = 0; s < numSpheres; s++)
+	for (int s = 0; s < numCircles; s++)
 	{
-		spheres[s].addForce(g * spheres[s].mass());
+		circles[s].addForce(g * circles[s].mass());
 
-		for (int s2 = s+1; s2 < numSpheres; s2++)
+		for (int s2 = s+1; s2 < numCircles; s2++)
 		{
-			if (CircleCollisionResolver::isCollision(spheres[s], spheres[s2]))
-				CircleCollisionResolver::resolve(&spheres[s], &spheres[s2], duration, restitution);
+			if (CircleCollisionResolver::isCollision(circles[s], circles[s2]))
+				CircleCollisionResolver::resolve(&circles[s], &circles[s2], duration, restitution);
 		}
 
-		spheres[s].update(duration);
-		spheres[s].resolveBorder(width, height);
+		circles[s].update(duration);
+		circles[s].resolveBorder(width, height);
 	}
 	
 	Application::update();

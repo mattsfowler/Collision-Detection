@@ -34,7 +34,7 @@ void runGLApp(Application* application, int argc, char* argv[])
 {
 	glutInit(&argc, argv);
 	app = application;
-	createWindow("Sphere");
+	createWindow("My Demo Application");
 	glutReshapeFunc(resize);
 	glutDisplayFunc(display);
 	app->initGraphics();

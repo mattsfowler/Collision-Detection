@@ -4,13 +4,13 @@ CirclePhysics::CirclePhysics(Circle initialState)
 {
 	if (initialState.mass == 0)
 		initialState.mass = FLT_MAX;
-	this->sphere = initialState;
+	this->circle = initialState;
 	this->pixelsPerMetre = 60.0f;
 }
 
 CirclePhysics::CirclePhysics()
 {
-	CirclePhysics(Sphere());
+	CirclePhysics(Circle());
 }
 
 void CirclePhysics::update(const float& duration)
@@ -19,56 +19,56 @@ void CirclePhysics::update(const float& duration)
 		return;
 
 	Vector2 acceleration = Vector2(0.0f, 0.0f);
-	acceleration.addScaledVector(sphere.totalForce, inverseMass());
+	acceleration.addScaledVector(circle.totalForce, inverseMass());
 
-	sphere.velocity.addScaledVector(acceleration, duration);
-	sphere.velocity *= powf(sphere.dampening, duration);
+	circle.velocity.addScaledVector(acceleration, duration);
+	circle.velocity *= powf(circle.dampening, duration);
 
-	sphere.position.addScaledVector(sphere.velocity, duration * pixelsPerMetre);
+	circle.position.addScaledVector(circle.velocity, duration * pixelsPerMetre);
 	this->clearForce();
 }
 
 void CirclePhysics::addForce(const Vector2& force)
 {
-	sphere.totalForce += force;
+	circle.totalForce += force;
 }
 
 void CirclePhysics::clearForce()
 {
-	sphere.totalForce.x = 0.0f;
-	sphere.totalForce.y = 0.0f;
+	circle.totalForce.x = 0.0f;
+	circle.totalForce.y = 0.0f;
 }
 
 void CirclePhysics::resolveBorder(const int& width, const int& height)
 {
-	if (sphere.position.x > width - sphere.radius)
+	if (circle.position.x > width - circle.radius)
 	{
-		sphere.velocity.x = -sphere.velocity.x;
-		sphere.position.x = width - sphere.radius;
+		circle.velocity.x = -circle.velocity.x;
+		circle.position.x = width - circle.radius;
 	}
-	if (sphere.position.x < -width + sphere.radius)
+	if (circle.position.x < -width + circle.radius)
 	{
-		sphere.velocity.x = -sphere.velocity.x;
-		sphere.position.x = -width + sphere.radius;
+		circle.velocity.x = -circle.velocity.x;
+		circle.position.x = -width + circle.radius;
 	}
-	if (sphere.position.y > height - sphere.radius)
+	if (circle.position.y > height - circle.radius)
 	{
-		sphere.velocity.y = -sphere.velocity.y;
-		sphere.position.y = height - sphere.radius;
+		circle.velocity.y = -circle.velocity.y;
+		circle.position.y = height - circle.radius;
 	}
-	if (sphere.position.y < -height + sphere.radius)
+	if (circle.position.y < -height + circle.radius)
 	{
-		sphere.velocity.y = -sphere.velocity.y;
-		sphere.position.y = -height + sphere.radius;
+		circle.velocity.y = -circle.velocity.y;
+		circle.position.y = -height + circle.radius;
 	}
 }
 
 void CirclePhysics::resolveOverlap(const CirclePhysics& s)
 {
-	Vector2 contactLine = sphere.position - s.position();
-	float separation = (sphere.position - s.position()).magnitude();
-	float overlap = std::max(0.0f, -separation + sphere.radius + s.radius());
-	sphere.position.addScaledVector(contactLine.unit(), overlap * 0.5f);
+	Vector2 contactLine = circle.position - s.position();
+	float separation = (circle.position - s.position()).magnitude();
+	float overlap = std::max(0.0f, -separation + circle.radius + s.radius());
+	circle.position.addScaledVector(contactLine.unit(), overlap * 0.5f);
 }
 
 bool CirclePhysics::isMovable() const
@@ -78,36 +78,36 @@ bool CirclePhysics::isMovable() const
 
 float CirclePhysics::inverseMass() const
 {
-	return 1.0f / sphere.mass;
+	return 1.0f / circle.mass;
 }
 
 float CirclePhysics::mass() const
 {
-	return sphere.mass;
+	return circle.mass;
 }
 
 float CirclePhysics::radius() const
 {
-	return sphere.radius;
+	return circle.radius;
 }
 
 Vector2 CirclePhysics::position() const
 {
-	return sphere.position;
+	return circle.position;
 }
 
 Vector2 CirclePhysics::velocity() const
 {
-	return sphere.velocity;
+	return circle.velocity;
 }
 
 int CirclePhysics::colour(const char& col)
 {
 	if (col == 'r' || col == 'R')
-		return sphere.colour[0];
+		return circle.colour[0];
 	if (col == 'g' || col == 'G')
-		return sphere.colour[1];
+		return circle.colour[1];
 	if (col == 'b' || col == 'B')
-		return sphere.colour[2];
+		return circle.colour[2];
 	return 0;
 }

@@ -7,18 +7,18 @@
 #include "CircleCollisionResolver.h"
 #include <iostream>
 
-#define NUM_SPHERES 20
+#define NUM_CIRCLES 20
 #define M_PI 3.14159265358979323846  /* pi */
 
 
 class MyDemoApp : public Application
 {
 private:
-	CirclePhysics spheres[NUM_SPHERES];
-	int numSpheres;
-	int sphereResolution;
+	CirclePhysics circles[NUM_CIRCLES];
+	int numCircles;
+	int circleResolution;
 
-	Circle generateRandomSphere(int minRad, int maxRad, int minVel, int maxVel);
+	Circle generateRandomCircle(int minRad, int maxRad, int minVel, int maxVel);
 
 public:
 	MyDemoApp();

@@ -22,7 +22,7 @@ struct Circle
 class CirclePhysics
 {
 private:
-	Circle sphere;
+	Circle circle;
 	float pixelsPerMetre;
 
 public:
