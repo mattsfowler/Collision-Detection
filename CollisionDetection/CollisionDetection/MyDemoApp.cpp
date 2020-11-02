@@ -17,14 +17,14 @@ MyDemoApp::MyDemoApp()
 	
 	for (int s = 0; s < numSpheres; s++)
 	{
-		Sphere sphere = generateRandomSphere(minRad, maxRad, minVel, maxVel);
-		spheres[s] = SphereGeometry(sphere);
+		Circle sphere = generateRandomSphere(minRad, maxRad, minVel, maxVel);
+		spheres[s] = CirclePhysics(sphere);
 	}
 }
 
-Sphere MyDemoApp::generateRandomSphere(int minRad, int maxRad, int minVel, int maxVel)
+Circle MyDemoApp::generateRandomSphere(int minRad, int maxRad, int minVel, int maxVel)
 {
-	Sphere randomSphere = Sphere();
+	Circle randomSphere = Circle();
 
 	randomSphere.radius = rand() % (maxRad - minRad) + minRad;
 	randomSphere.position.x = rand() % (width * 2) - width;
@@ -69,8 +69,8 @@ void MyDemoApp::update()
 
 		for (int s2 = s+1; s2 < numSpheres; s2++)
 		{
-			if (SphereCollisionResolver::isCollision(spheres[s], spheres[s2]))
-				SphereCollisionResolver::resolve(&spheres[s], &spheres[s2], duration, restitution);
+			if (CircleCollisionResolver::isCollision(spheres[s], spheres[s2]))
+				CircleCollisionResolver::resolve(&spheres[s], &spheres[s2], duration, restitution);
 		}
 
 		spheres[s].update(duration);

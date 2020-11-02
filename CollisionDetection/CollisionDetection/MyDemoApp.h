@@ -3,8 +3,8 @@
 #include <gl/glut.h>// OpenGL toolkit
 #include "Application.h"
 #include "Platform.h"
-#include "SphereGeometry.h"
-#include "SphereCollisionResolver.h"
+#include "CirclePhysics.h"
+#include "CircleCollisionResolver.h"
 #include <iostream>
 
 #define NUM_SPHERES 20
@@ -14,11 +14,11 @@
 class MyDemoApp : public Application
 {
 private:
-	SphereGeometry spheres[NUM_SPHERES];
+	CirclePhysics spheres[NUM_SPHERES];
 	int numSpheres;
 	int sphereResolution;
 
-	Sphere generateRandomSphere(int minRad, int maxRad, int minVel, int maxVel);
+	Circle generateRandomSphere(int minRad, int maxRad, int minVel, int maxVel);
 
 public:
 	MyDemoApp();

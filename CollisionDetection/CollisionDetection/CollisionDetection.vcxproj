@@ -142,16 +142,16 @@
     <ClCompile Include="MyDemoApp.cpp" />
     <ClCompile Include="GLScript.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SphereCollisionResolver.cpp" />
-    <ClCompile Include="SphereGeometry.cpp" />
+    <ClCompile Include="CircleCollisionResolver.cpp" />
+    <ClCompile Include="CirclePhysics.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="coreMath.h" />
     <ClInclude Include="MyDemoApp.h" />
     <ClInclude Include="Platform.h" />
-    <ClInclude Include="SphereCollisionResolver.h" />
-    <ClInclude Include="SphereGeometry.h" />
+    <ClInclude Include="CircleCollisionResolver.h" />
+    <ClInclude Include="CirclePhysics.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
