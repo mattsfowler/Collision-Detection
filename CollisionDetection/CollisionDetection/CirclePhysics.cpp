@@ -5,7 +5,7 @@ CirclePhysics::CirclePhysics(Circle initialState)
 	if (initialState.mass == 0)
 		initialState.mass = FLT_MAX;
 	this->circle = initialState;
-	this->pixelsPerMetre = 60.0f;
+	this->pixelsPerMetre = 20.0f;
 }
 
 CirclePhysics::CirclePhysics()
@@ -15,14 +15,13 @@ CirclePhysics::CirclePhysics()
 
 void CirclePhysics::update(const float& duration)
 {
-	if (isMovable() == false) 
+	if (isMovable() == false)
 		return;
 
 	Vector2 acceleration = Vector2(0.0f, 0.0f);
 	acceleration.addScaledVector(circle.totalForce, inverseMass());
 
 	circle.velocity.addScaledVector(acceleration, duration);
-	circle.velocity *= powf(circle.dampening, duration);
 
 	circle.position.addScaledVector(circle.velocity, duration * pixelsPerMetre);
 	this->clearForce();
@@ -63,17 +62,14 @@ void CirclePhysics::resolveBorder(const int& width, const int& height)
 	}
 }
 
-void CirclePhysics::resolveOverlap(const CirclePhysics& s)
+void CirclePhysics::nudge(const Vector2& amount)
 {
-	Vector2 contactLine = circle.position - s.position();
-	float separation = (circle.position - s.position()).magnitude();
-	float overlap = std::max(0.0f, -separation + circle.radius + s.radius());
-	circle.position.addScaledVector(contactLine.unit(), overlap * 0.5f);
+	this->circle.position += amount;
 }
 
 bool CirclePhysics::isMovable() const
 {
-	return inverseMass() > 0.0f;
+	return circle.mass != FLT_MAX;
 }
 
 float CirclePhysics::inverseMass() const

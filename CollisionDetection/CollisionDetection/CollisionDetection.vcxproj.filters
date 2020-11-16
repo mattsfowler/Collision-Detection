@@ -19,6 +19,18 @@
     <Filter Include="Source Files\GL">
       <UniqueIdentifier>{d18b62fb-350f-414d-88e4-3dcf527cd1c7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Physics">
+      <UniqueIdentifier>{c33f319f-1c3b-46dc-9225-efab36c8adc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics">
+      <UniqueIdentifier>{b22e9175-fbb2-4a07-8aac-8fd7dee653ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Collision">
+      <UniqueIdentifier>{752b019a-f904-4506-ae40-05adbaaf9815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Collision">
+      <UniqueIdentifier>{dc23b271-8505-454e-81da-98f4855f1958}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -34,10 +46,16 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CirclePhysics.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformPhysics.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="ContactGenerator.cpp">
+      <Filter>Source Files\Collision</Filter>
     </ClCompile>
     <ClCompile Include="CircleCollisionResolver.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,14 +68,23 @@
     <ClInclude Include="MyDemoApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Platform.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CirclePhysics.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformPhysics.h">
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsObject.h">
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="ContactGenerator.h">
+      <Filter>Header Files\Collision</Filter>
     </ClInclude>
     <ClInclude Include="CircleCollisionResolver.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Contact.h">
+      <Filter>Header Files\Collision</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

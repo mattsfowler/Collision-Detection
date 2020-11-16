@@ -139,17 +139,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="ContactGenerator.cpp" />
     <ClCompile Include="MyDemoApp.cpp" />
     <ClCompile Include="GLScript.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="CircleCollisionResolver.cpp" />
     <ClCompile Include="CirclePhysics.cpp" />
+    <ClCompile Include="PlatformPhysics.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
+    <ClInclude Include="ContactGenerator.h" />
+    <ClInclude Include="Contact.h" />
     <ClInclude Include="coreMath.h" />
     <ClInclude Include="MyDemoApp.h" />
-    <ClInclude Include="Platform.h" />
+    <ClInclude Include="PhysicsObject.h" />
+    <ClInclude Include="PlatformPhysics.h" />
     <ClInclude Include="CircleCollisionResolver.h" />
     <ClInclude Include="CirclePhysics.h" />
   </ItemGroup>

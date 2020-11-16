@@ -1,5 +1,7 @@
 #pragma once
 #include "coreMath.h"
+#include "PhysicsObject.h"
+
 #include <math.h>
 #include <limits>
 #include <assert.h>
@@ -14,12 +16,11 @@ struct Circle
 	Vector2 position;
 	Vector2 velocity;
 	Vector2 totalForce;
-	float dampening;
 	int colour[3];
 };
 
 
-class CirclePhysics
+class CirclePhysics : public PhysicsObject
 {
 private:
 	Circle circle;
@@ -27,12 +28,12 @@ private:
 
 public:
 	CirclePhysics(Circle initialState);
-	CirclePhysics();
+	CirclePhysics(); // is this needed?
 	void update(const float& duration);
 	void addForce(const Vector2& force);
 	void clearForce();
 	void resolveBorder(const int& width, const int& height);
-	void resolveOverlap(const CirclePhysics& s);
+	void nudge(const Vector2& amount);
 
 	bool isMovable() const;
 	float inverseMass() const;

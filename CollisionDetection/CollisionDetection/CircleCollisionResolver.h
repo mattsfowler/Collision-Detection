@@ -1,5 +1,6 @@
 #pragma once
 #include "CirclePhysics.h"
+#include "Contact.h"
 #include "coreMath.h"
 #include <algorithm>
 
@@ -9,8 +10,7 @@ private:
 	CircleCollisionResolver() {}
 
 public:
-	static bool isCollision(const CirclePhysics& s1, const CirclePhysics& s2);
-	static void resolve(CirclePhysics* s1, CirclePhysics* s2, float duration);
-	static void resolve(CirclePhysics* s1, CirclePhysics* s2, float duration, float restitution);
+	static void resolveAll(Contact* contactArray, unsigned numContacts, unsigned maxIterations, float duration);
+	static void resolve(Contact* contact, float duration, float restitution);
 };
 

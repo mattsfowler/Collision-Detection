@@ -1,21 +1,3 @@
 ﻿  CircleCollisionResolver.cpp
 D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\coreMath.h(141,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  CirclePhysics.cpp
-D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\coreMath.h(141,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\CirclePhysics.cpp(13,16): warning C4930: 'CirclePhysics Circle(void)': prototyped function not called (was a variable definition intended?)
-  GLScript.cpp
-D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\GLScript.cpp(25,16): warning C4244: 'argument': conversion from 'GLfloat' to 'unsigned int', possible loss of data
-D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\GLScript.cpp(42,16): warning C4244: 'argument': conversion from 'GLfloat' to 'unsigned int', possible loss of data
-  MyDemoApp.cpp
-D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\coreMath.h(141,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\MyDemoApp.cpp(29,51): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\MyDemoApp.cpp(30,49): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\MyDemoApp.cpp(31,50): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\MyDemoApp.cpp(32,55): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\MyDemoApp.cpp(33,55): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\MyDemoApp.cpp(37,27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\MyDemoApp.cpp(62,33): warning C4305: 'argument': truncation from 'double' to 'const float'
-  main.cpp
-D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\CollisionDetection\coreMath.h(141,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
   CollisionDetection.vcxproj -> D:\Matt\Documents\University\Object Oriented\Assessment\Collision-Detection\CollisionDetection\Debug\CollisionDetection.exe
